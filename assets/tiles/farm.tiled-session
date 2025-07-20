@@ -1,0 +1,21 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+    },
+    "last.imagePath": "/Users/avaz/StudioProjects/farm/assets/Crawler-Pack/Environment/Structures/Stations/Bonfire",
+    "map.height": 120,
+    "map.lastUsedFormat": "tmx",
+    "map.width": 120,
+    "openFiles": [
+    ],
+    "project": "farm.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx"
+}
