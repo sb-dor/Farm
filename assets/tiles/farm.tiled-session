@@ -3,19 +3,48 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "Bonfire_01-Sheet.tsx",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "Bonfire_01-Sheet.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "Floors_Tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "farm.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1811.3333333333335,
+                "y": 2583.333333333333
+            }
+        },
+        "tallgrass.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
     },
-    "last.imagePath": "/Users/avaz/StudioProjects/farm/assets/Crawler-Pack/Environment/Structures/Stations/Bonfire",
+    "last.imagePath": "/Users/avaz/StudioProjects/farm/assets/Crawler-Pack/Entities/Mobs/Orc Crew/Orc - Warrior/Idle",
     "map.height": 120,
     "map.lastUsedFormat": "tmx",
     "map.width": 120,
     "openFiles": [
+        "farm.tmx",
+        "Floors_Tiles.tsx",
+        "tallgrass.tsx",
+        "Bonfire_01-Sheet.tsx"
     ],
     "project": "farm.tiled-project",
     "recentFiles": [
+        "Bonfire_01-Sheet.tsx",
+        "tallgrass.tsx",
+        "Floors_Tiles.tsx",
+        "farm.tmx"
     ],
     "tileset.lastUsedFormat": "tsx"
 }
