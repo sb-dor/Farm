@@ -1,18 +1,18 @@
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 
-class UnWalkableComponent extends PolygonComponent {
+class UnWalkableComponent extends PolygonComponent with CollisionCallbacks {
   UnWalkableComponent(super._vertices)
-      : super(
-    anchor: Anchor.center,
-    children: [
-      RectangleHitbox(),
-      // TODO: Make this work, but the _vertices values have to be made
-      //       relative; right now they are absolute
-      // PolygonHitbox(_vertices),
-    ],
-    priority: 10,
-  );
+    : super(
+        anchor: Anchor.center,
+        children: [
+          RectangleHitbox(),
+          // TODO: Make this work, but the _vertices values have to be made
+          //       relative; right now they are absolute
+          // PolygonHitbox(_vertices),
+        ],
+        priority: 10,
+      );
 
   @override
   bool get renderShape => false;

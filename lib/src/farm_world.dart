@@ -2,6 +2,8 @@ import 'dart:async';
 
 import 'package:farm/src/farm_game.dart';
 import 'package:flame/components.dart';
+import 'package:flame/experimental.dart';
+import 'package:flame/extensions.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
 import 'common/constants.dart';
@@ -22,37 +24,26 @@ class FarmWorld extends World with HasGameReference<FarmGame>, HasCollisionDetec
 
     farmComponent = await TiledComponent.load('farm.tmx', Vector2.all(32));
 
-    final objectLayer = farmComponent.tileMap.getLayer<ObjectGroup>('Objects')!;
-    for (final TiledObject object in objectLayer.objects) {
-      if (!object.isPolygon) continue;
-      if (!object.properties.byName.containsKey('blocksMovement')) return;
-      final vertices = <Vector2>[];
-      Vector2? lastPoint;
-      Vector2? nextPoint;
-      Vector2? firstPoint;
-      for (final point in object.polygon) {
-        nextPoint = Vector2((point.x + object.x) * worldScale, (point.y + object.y) * worldScale);
-        firstPoint ??= nextPoint;
-        vertices.add(nextPoint);
 
-        // If there is a last point, or this is the end of the list, we have a
-        // line to add to our cached list of lines
-        if (lastPoint != null) {
-          unWalkableComponentEdges.add(Line(firstPoint, nextPoint));
-        }
-        lastPoint = nextPoint;
-      }
-      unWalkableComponentEdges.add(Line(lastPoint!, firstPoint!));
-      add(UnWalkableComponent(vertices));
-    }
-
-    for (final line in unWalkableComponentEdges) {
-      add(LineComponent.red(line: line, thickness: 3));
-    }
+    // for (final line in unWalkableComponentEdges) {
+    //   add(LineComponent.red(line: line, thickness: 3));
+    // }
 
     addAll([farmComponent, farmPlayer]);
 
+    print("tile size: ${farmComponent.size}");
+
     game.cameraComponent.follow(farmPlayer);
     game.cameraComponent.viewport.add(FpsTextComponent());
+    game.cameraComponent.viewfinder.zoom = 2;
+
+    final worldSize = farmComponent.size;
+    final halfViewportSize = game.cameraComponent.viewport.size / 2;
+    game.cameraComponent.setBounds(
+      Rectangle.fromCenter(
+        center: worldSize / 2,
+        size: worldSize - halfViewportSize,
+      ),
+    );
   }
 }

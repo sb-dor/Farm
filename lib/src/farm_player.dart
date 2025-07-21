@@ -54,8 +54,19 @@ class FarmPlayer extends SpriteAnimationComponent
     super.update(dt);
 
     if (_direction != Vector2.zero()) {
-      position += _direction.normalized() * _speed * dt;
+      final newPosition = position + _direction.normalized() * _speed * dt;
 
+      // Get map size from the loaded map (in pixels)
+      final mapSize = game.world.farmComponent.size;
+      final halfSize = size / 2;
+
+      // Clamp position so player stays inside the map
+      final clampedX = newPosition.x.clamp(halfSize.x, mapSize.x - halfSize.x);
+      final clampedY = newPosition.y.clamp(halfSize.y, mapSize.y - halfSize.y);
+
+      position = Vector2(clampedX, clampedY);
+
+      // Change animation based on direction
       if (_direction.y > 0) {
         animation = _walkDown;
       } else if (_direction.y < 0) {
@@ -88,6 +99,7 @@ class FarmPlayer extends SpriteAnimationComponent
     if (keysPressed.contains(LogicalKeyboardKey.keyD)) {
       _direction += Vector2(1, 0);
     }
+
 
     return true;
   }
