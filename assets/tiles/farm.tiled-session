@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "Bonfire_01-Sheet.tsx",
+    "activeFile": "farm.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -16,12 +16,16 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "Idle-Sheet.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "farm.tmx": {
             "scale": 0.75,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 1811.3333333333335,
-                "y": 2583.333333333333
+                "x": 626,
+                "y": 456.66666666666663
             }
         },
         "tallgrass.tsx": {
@@ -35,15 +39,17 @@
     "map.width": 120,
     "openFiles": [
         "farm.tmx",
+        "Bonfire_01-Sheet.tsx",
         "Floors_Tiles.tsx",
         "tallgrass.tsx",
-        "Bonfire_01-Sheet.tsx"
+        "Idle-Sheet.tsx"
     ],
     "project": "farm.tiled-project",
     "recentFiles": [
-        "Bonfire_01-Sheet.tsx",
+        "Idle-Sheet.tsx",
         "tallgrass.tsx",
         "Floors_Tiles.tsx",
+        "Bonfire_01-Sheet.tsx",
         "farm.tmx"
     ],
     "tileset.lastUsedFormat": "tsx"
