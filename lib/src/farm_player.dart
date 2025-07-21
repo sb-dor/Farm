@@ -11,7 +11,7 @@ class FarmPlayer extends SpriteAnimationComponent
   FarmPlayer() : super(size: Vector2.all(64), anchor: Anchor.center);
 
   late final Vector2 _initialPosition;
-  final double _speed = 100;
+  final double _speed = 80;
   Vector2 _direction = Vector2.zero();
 
   late final SpriteAnimation _idle;
@@ -45,7 +45,8 @@ class FarmPlayer extends SpriteAnimationComponent
 
     animation = _idle;
 
-    _initialPosition = Vector2(game.size.x / 2, game.size.y / 2);
+    // center of the map
+    _initialPosition = game.world.farmTiledComponent.size / 2;
     position = _initialPosition.clone();
   }
 
@@ -57,7 +58,7 @@ class FarmPlayer extends SpriteAnimationComponent
       final newPosition = position + _direction.normalized() * _speed * dt;
 
       // Get map size from the loaded map (in pixels)
-      final mapSize = game.world.farmComponent.size;
+      final mapSize = game.world.farmTiledComponent.size;
       final halfSize = size / 2;
 
       // Clamp position so player stays inside the map
@@ -102,5 +103,13 @@ class FarmPlayer extends SpriteAnimationComponent
 
 
     return true;
+  }
+
+
+  @override
+  void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
+    super.onCollisionStart(intersectionPoints, other);
+
+
   }
 }
