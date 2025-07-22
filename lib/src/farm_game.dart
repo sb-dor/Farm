@@ -20,6 +20,7 @@ class FarmGame extends FlameGame
 
   @override
   FutureOr<void> onLoad() async {
+    debugMode = true;
     addAll([cameraComponent, world]);
   }
 }
