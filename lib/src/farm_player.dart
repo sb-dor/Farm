@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:farm/src/farm_enemy.dart';
 import 'package:farm/src/farm_game.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
@@ -25,22 +26,22 @@ class FarmPlayer extends SpriteAnimationComponent
 
     _idle = await game.loadSpriteAnimation(
       'characters/Idle_Down-Sheet.png',
-      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.5, textureSize: Vector2.all(64)),
+      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.1, textureSize: Vector2.all(64)),
     );
 
     _walkDown = await game.loadSpriteAnimation(
       'characters/Walk_Down-Sheet.png',
-      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.5, textureSize: Vector2.all(64)),
+      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.1, textureSize: Vector2.all(64)),
     );
 
     _walkUp = await game.loadSpriteAnimation(
       'characters/Walk_Up-Sheet.png',
-      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.5, textureSize: Vector2.all(64)),
+      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.1, textureSize: Vector2.all(64)),
     );
 
     _walkSide = await game.loadSpriteAnimation(
       'characters/Walk_Side-Sheet.png',
-      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.5, textureSize: Vector2.all(64)),
+      SpriteAnimationData.sequenced(amount: 4, stepTime: 0.1, textureSize: Vector2.all(64)),
     );
 
     animation = _idle;
@@ -48,6 +49,7 @@ class FarmPlayer extends SpriteAnimationComponent
     // center of the map
     _initialPosition = game.world.farmTiledComponent.size / 2;
     position = _initialPosition.clone();
+    add(RectangleHitbox());
   }
 
   @override
@@ -101,15 +103,15 @@ class FarmPlayer extends SpriteAnimationComponent
       _direction += Vector2(1, 0);
     }
 
-
     return true;
   }
-
 
   @override
   void onCollisionStart(Set<Vector2> intersectionPoints, PositionComponent other) {
     super.onCollisionStart(intersectionPoints, other);
 
-
+    if (other is FarmEnemy) {
+      print("you are touching farm enemy! Go away!");
+    }
   }
 }
